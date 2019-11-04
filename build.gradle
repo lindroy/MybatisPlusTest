@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+    id "org.jetbrains.kotlin.plugin.spring" version "1.3.41"
+    id "org.springframework.boot" version "2.1.9.RELEASE"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    id "org.jetbrains.kotlin.plugin.noarg" version "1.3.41"
+}
+
+group 'com.lindroid'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    // maven库
+    def cn = "http://maven.aliyun.com/nexus/content/groups/public/"
+    def abroad = "http://central.maven.org/maven2/"
+    // 先从url中下载jar若没有找到，则在artifactUrls中寻找
+    maven {
+        url cn
+        artifactUrls abroad
+    }
+//    mavenCentral()
+}
+
+noArg {
+    annotation("com.lindroid.mybatisplustest.config.NoArg")
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.9.RELEASE'
+    implementation group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.1.2'
+    implementation group: 'com.baomidou', name: 'mybatis-plus-generator', version: '3.2.0'
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation('mysql:mysql-connector-java:8.0.17')
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.3.41' //Kotlin反射库
+    implementation group: 'org.apache.velocity', name: 'velocity-engine-core', version: '2.0'   //代码模板工具
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.0'   //代码模板工具
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+    implementation 'com.github.xiaoymin:swagger-bootstrap-ui:1.8.9'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}

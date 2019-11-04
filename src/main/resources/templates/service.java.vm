@@ -1,0 +1,35 @@
+package ${package.Service};
+
+import ${package.Entity}.${entity};
+import ${superServiceClassPackage};
+
+/**
+ * @author ${author}
+ * @since ${date}
+ * @function  $!{table.name}服务类
+ * @description $!{table.comment}
+ */
+#if(${kotlin})
+interface ${table.serviceName} : ${superServiceClass}<${entity}>{
+   #* /**
+    * 根据Id查找
+    */
+    fun findById(id:Int):${entity}?
+    /**
+    * 添加一个数据
+    */
+    fun insert(entity:${entity})
+    /**
+    * 根据Id删除
+    */
+    fun deleteByIds(ids:List<Int>):Int
+
+    /**
+     * 分页查询
+     */
+    fun findByPage(pageNo:Int,pageSize:Int):IPage<${entity}>*#
+}
+#else
+public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+}
+#end
