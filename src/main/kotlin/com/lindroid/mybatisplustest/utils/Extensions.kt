@@ -29,6 +29,12 @@ fun Boolean.getDeleteResult() = this.yes {
     "部分数据删除失败"
 }
 
+fun <T:Any> List<T>.println(){
+    this.forEach {
+        println(it)
+    }
+}
+
 /*fun Any?.checkNotNull(errorMsg: String? = null) = isNotNull().yes { true }.no {
     throw BaseException(message = errorMsg ?: "空指针异常")
 }*/
