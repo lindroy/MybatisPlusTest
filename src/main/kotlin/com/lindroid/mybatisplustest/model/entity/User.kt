@@ -16,7 +16,8 @@ import com.lindroid.mybatisplustest.config.NoArg
 @TableName("user")
 data class User(
     @TableId(value = "id", type = IdType.AUTO)
-    var id: Int?, var userName: String?,  //用户名
+    var id: Int?,
+    var userName: String?,  //用户名
     var age: Int?,  //年龄
     var password: String?,  //密码
     var name: String?,  //姓名

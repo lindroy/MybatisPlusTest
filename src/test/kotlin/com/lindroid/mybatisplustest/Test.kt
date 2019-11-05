@@ -62,7 +62,9 @@ class Test {
         users.println()
     }
 
-    fun testSelectCount(){
+    @Test
+    fun testCusSelect(){
+        println("=========user:${userMapper.findById(1)}===========")
 
     }
 

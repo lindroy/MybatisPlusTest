@@ -12,7 +12,7 @@ import org.springframework.boot.runApplication
  */
 
 @SpringBootApplication
-@MapperScan("com.lindroid.mybatisplustest.mapper")
+//@MapperScan("com.lindroid.mybatisplustest.mapper")
 class Application
 
 fun main(args: Array<String>) {

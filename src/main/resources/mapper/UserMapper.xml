@@ -3,7 +3,7 @@
 <mapper namespace="com.lindroid.mybatisplustest.mapper.UserMapper">
 
 
-    <select id="findById" resultType="com.lindroid.mybatisplustest.model.entity.User">
+    <select id="findById" resultType="User">
          select * from user where id = #{id}
     </select>
 
